@@ -11,8 +11,8 @@ cd /path/to/your/directory
 ## 2. Clone the repository
 
 ```bash
-git clone https://github.com/danielsehr/acp4.git
-cd ACP4-Seminar
+git clone https://github.com/danielsehr/GEO6.git
+cd geo6
 ```
 
 ## 3. Install dependencies
@@ -25,8 +25,6 @@ uv sync
 
 This creates a virtual environment (if needed) and installs the project dependencies specified in `pyproject.toml` and `uv.lock`.
 
-To run Python commands within the environment, use:
 
-```bash
-uv run python your_script.py
-```
+## 4. Run the submission
+Go to src/geo6/main.ipynb and run the script!
