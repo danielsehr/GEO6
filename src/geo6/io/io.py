@@ -1,7 +1,7 @@
 import pickle
 from pathlib import Path
 import pandas as pd
-from dataclasses import  dataclass
+from dataclasses import  dataclass, asdict
 from geo6.config import Config
 
 config = Config()
@@ -98,6 +98,8 @@ def export_data(data: Data, path: str | Path) -> None:
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
 
+    data = asdict(data)
+    
     with path.open("wb") as file:
         pickle.dump(data, file, protocol=pickle.HIGHEST_PROTOCOL)
         
