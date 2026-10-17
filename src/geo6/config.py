@@ -15,3 +15,4 @@ class Config():
     nitrification_rate_path: Path = Path(data_root) / "nitrification_rate.csv"
     copper_path: Path = Path(data_root) / "copper.csv"
     uv_phenolic_compounds_path: Path = Path(data_root) / "uv_phenolic_compounds.csv"
+    microresp_path: Path = Path(data_root) / "microresp.csv"
