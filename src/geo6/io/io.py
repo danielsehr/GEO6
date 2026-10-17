@@ -18,6 +18,7 @@ class Data:
     dissolved_carbon_nitrogen: pd.DataFrame
     nitrification_rate: pd.DataFrame
     copper: pd.DataFrame
+    uv_phenolic_compounds: pd.DataFrame
     
 
 def read_csv(
@@ -84,4 +85,6 @@ def load_data() -> Data:
         nitrification_rate=read_csv(config.nitrification_rate_path),
 
         copper=read_csv(config.copper_path),
+        
+        uv_phenolic_compounds=read_csv(config.uv_phenolic_compounds_path),
     )

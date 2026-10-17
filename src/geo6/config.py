@@ -1,5 +1,6 @@
 from pathlib import Path
 
+
 class Config():
     data_root: Path = Path("data/")
     
@@ -13,3 +14,4 @@ class Config():
     dissolved_carbon_nitrogen_path: Path = Path(data_root) / "dissolved_carbon_nitrogen.csv"
     nitrification_rate_path: Path = Path(data_root) / "nitrification_rate.csv"
     copper_path: Path = Path(data_root) / "copper.csv"
+    uv_phenolic_compounds_path: Path = Path(data_root) / "uv_phenolic_compounds.csv"
