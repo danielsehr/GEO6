@@ -1,8 +1,9 @@
+import pickle
 from pathlib import Path
 import pandas as pd
 from dataclasses import  dataclass
-
 from geo6.config import Config
+
 config = Config()
 
 
@@ -91,3 +92,16 @@ def load_data() -> Data:
 
         microresp=read_csv(config.microresp_path),
     )
+    
+
+def export_data(data: Data, path: str | Path) -> None:
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+
+    with path.open("wb") as file:
+        pickle.dump(data, file, protocol=pickle.HIGHEST_PROTOCOL)
+        
+
+def load_data_pickle(path: str | Path) -> Data:
+    with Path(path).open("rb") as file:
+        return pickle.load(file)
