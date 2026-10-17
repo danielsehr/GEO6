@@ -17,6 +17,7 @@ class Data:
     total_phenolic_compounds: pd.DataFrame
     dissolved_carbon_nitrogen: pd.DataFrame
     nitrification_rate: pd.DataFrame
+    copper: pd.DataFrame
     
 
 def read_csv(
@@ -81,4 +82,6 @@ def load_data() -> Data:
         dissolved_carbon_nitrogen=read_csv(config.dissolved_carbon_nitrogen_path),
      
         nitrification_rate=read_csv(config.nitrification_rate_path),
+
+        copper=read_csv(config.copper_path),
     )

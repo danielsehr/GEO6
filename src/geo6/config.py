@@ -12,3 +12,4 @@ class Config():
     total_phenolic_compounds_path: Path = Path(data_root) / "total_phenolic_compounds.csv"
     dissolved_carbon_nitrogen_path: Path = Path(data_root) / "dissolved_carbon_nitrogen.csv"
     nitrification_rate_path: Path = Path(data_root) / "nitrification_rate.csv"
+    copper_path: Path = Path(data_root) / "copper.csv"
