@@ -98,10 +98,12 @@ def export_data(data: Data, path: str | Path) -> None:
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
 
-    data = asdict(data)
-    
     with path.open("wb") as file:
-        pickle.dump(data, file, protocol=pickle.HIGHEST_PROTOCOL)
+        pickle.dump(
+            asdict(data), 
+            file, 
+            protocol=pickle.HIGHEST_PROTOCOL
+        )
         
 
 def load_data_pickle(path: str | Path) -> Data:
