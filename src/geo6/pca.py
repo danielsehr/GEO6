@@ -93,3 +93,13 @@ def plot_pca(df: pd.DataFrame, pca: PCA) -> None:
         f"Total variance explained by first 3 PCs: "
         f"{pca.explained_variance_ratio_.sum():.1%}"
     )
+    
+
+def print_pca_loadings(pca: PCA, features: list[str]) -> None:
+
+    print("\nPCA loadings:")
+    print(pd.DataFrame(
+        pca.components_.T,
+        index=features,
+        columns=["PC1", "PC2", "PC3"],
+    ))
