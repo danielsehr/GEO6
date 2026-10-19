@@ -103,3 +103,13 @@ def print_pca_loadings(pca: PCA, features: list[str]) -> None:
         index=features,
         columns=["PC1", "PC2", "PC3"],
     ))
+    
+
+def perform_pca(df: pd.DataFrame, features: list[str]):
+    df_pca, X_scaled = prepare_pca_data(df=df, features=features)
+
+    pca, df_scores = calc_pca(X_scaled=X_scaled, df_pca=df_pca)
+
+    print_pca_loadings(pca=pca, features=features)
+
+    plot_pca(df=df_scores, pca=pca)
