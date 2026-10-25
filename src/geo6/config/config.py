@@ -4,6 +4,7 @@ from pathlib import Path
 class Config():
     data_root: Path = Path("data/")
     data_export_dir: Path = (data_root / "export")
+    plot_output_dir: Path = Path("./figures")
     
     particle_size_path: Path = Path(data_root) / "particle_size_distribution.csv"
     cation_exchange_capacity_path: Path = Path(data_root) / "cation_exchange_capacity.csv"

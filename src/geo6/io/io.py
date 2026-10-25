@@ -2,7 +2,7 @@ import pickle
 from pathlib import Path
 import pandas as pd
 from dataclasses import  dataclass, asdict
-from geo6.config import Config
+from geo6.config.config import Config
 
 config = Config()
 
