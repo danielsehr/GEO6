@@ -127,6 +127,7 @@ def plot_sir_boxplots(
         hue="substance",
         col_wrap=4,
         kind="box",
+        legend=False
     )
 
     for ax, substance in zip(g.axes.flat, mapping):
