@@ -42,7 +42,6 @@ def plot_basal_resp_boxplot(df: pd.DataFrame) -> plt.figure:
     ax.set(
         xlabel="Soil sample",
         ylabel=r"Basal respiration (mg CO$_2$ g$^¹$ h$^¹$)",
-        title="Basal microbial respiration across soil groups",
     )
     
     return fig
@@ -146,5 +145,11 @@ def plot_sir_boxplots(
             ax=ax,
             legend=False
         )
-    
+
+        ax.set(
+            xlabel="Soil sample",
+            ylabel=r"Basal respiration (mg CO$_2$ g$^¹$ h$^¹$)",
+        )
+    g.set_titles("{col_name}")
+        
     return g
