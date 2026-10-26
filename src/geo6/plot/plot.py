@@ -103,12 +103,47 @@ def plot_basal_resp_rootextract_boxplot(df: pd.DataFrame) -> plt.figure:
 
     g.set_titles("Concentration {col_name}")
 
-    g.figure.suptitle(
-        "Basal respiration across soil mixtures and extract conditions",
-        y=1.05,
-    )
+    # g.figure.suptitle(
+    #     "Basal respiration across plant species and root extract, added at two concentrations.",
+    #     y=1.05,
+    # )
 
     plt.tight_layout()
     plt.show()
+    
+    return g
+
+
+def plot_sir_boxplots(
+    df: pd.DataFrame,
+    mapping: list[str],
+    ) -> plt.Figure:
+    
+    g = sns.catplot(
+        data=df,
+        x="sample",
+        y="value",
+        col="substance",
+        hue="substance",
+        col_wrap=4,
+        kind="box",
+    )
+
+    for ax, substance in zip(g.axes.flat, mapping):
+        subset = df[df["substance"] == substance]
+
+        sns.stripplot(
+            data=subset,
+            x="sample",
+            y="value",
+            # hue="substance",
+            color="black", 
+            dodge=True,
+            jitter=0.12,
+            alpha=0.7,
+            size=3,
+            ax=ax,
+            legend=False
+        )
     
     return g
