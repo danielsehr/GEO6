@@ -1,5 +1,5 @@
 
-H1 — Differences in microbial respiration
+## H1 — Differences in microbial respiration
 Microbial respiration differs between the rhizosphere soils associated with the three plant species and bulk soil.
 
 Prediction: At least some soil groups differ in basal respiration or substrate-induced respiration.
@@ -7,7 +7,7 @@ Prediction: At least some soil groups differ in basal respiration or substrate-i
 We should not assume in advance that invasive plants necessarily produce higher respiration rates.
 
 
-H2 — Differences in substrate-use profiles
+## H2 — Differences in substrate-use profiles
 The soil groups differ in their respiration responses to individual substrates.
 
 Prediction: The profiles of substrate-induced respiration differ between soil groups, indicating differences in their functional responses to the supplied substrates.
@@ -15,7 +15,7 @@ Prediction: The profiles of substrate-induced respiration differ between soil gr
 This hypothesis concerns the pattern of microbial responses, not simply their overall magnitude.
 
 
-H3 — Relationships with soil properties
+## H3 — Relationships with soil properties
 Variation in microbial respiration is associated with measured soil physicochemical properties.
 
 Prediction: At least some soil properties explain variation in respiration beyond the differences captured by soil-group identity alone.
