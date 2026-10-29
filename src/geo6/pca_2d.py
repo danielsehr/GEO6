@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from matplotlib.figure import Figure
 
 from sklearn.decomposition import PCA
 from sklearn.impute import SimpleImputer
@@ -51,7 +52,7 @@ def plot_pca(
     df: pd.DataFrame,
     pca: PCA,
     features: list[str],
-) -> plt.figure:
+) -> Figure:
 
     arrow_mapping = {
         'sir_1_mg_per_g_h': "sir 1",
@@ -159,12 +160,12 @@ def print_pca_loadings(
             columns=["PC1", "PC2"],
         )
     )
-
-
+    
+    
 def perform_2d_pca(
     df: pd.DataFrame,
     features: list[str],
-) -> plt.Figure:
+) ->  Figure:
 
     df_pca, X_scaled = prepare_pca_data(
         df=df,
