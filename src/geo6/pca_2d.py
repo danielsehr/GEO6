@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
+from matplotlib.lines import Line2D
 
 from sklearn.decomposition import PCA
 from sklearn.impute import SimpleImputer
@@ -52,6 +53,7 @@ def plot_pca(
     df: pd.DataFrame,
     pca: PCA,
     features: list[str],
+    substance_mapping: dict,
 ) -> Figure:
 
     arrow_mapping = {
@@ -121,7 +123,37 @@ def plot_pca(
     )
 
     # ax.set_title("PCA Biplot of MicroResp Measurements")
-    ax.legend(title="Soil sample")
+    
+    # Legend 1: Soil sample groups
+    group_legend = ax.legend(
+        title="Soil sample",
+        loc="upper right",
+    )
+    ax.add_artist(group_legend)
+
+    # Legend 2: SIR substrate mapping
+    sir_legend_handles = [
+        Line2D(
+            [0], [0],
+            color="black",
+            linewidth=1.2,
+            # marker=">",
+            markersize=5,
+            label=f"{arrow_mapping[feature]}: {substance_mapping[feature]}",
+        )
+        for feature in features
+        if feature in substance_mapping
+    ]
+
+    ax.legend(
+        handles=sir_legend_handles,
+        title="Substrate",
+        loc="upper left",
+        # bbox_to_anchor=(1.02, 1),
+        borderaxespad=0,
+        fontsize=8,
+    )
+
 
     ax.axhline(0, color="grey", linewidth=0.7, alpha=0.5)
     ax.axvline(0, color="grey", linewidth=0.7, alpha=0.5)
@@ -165,6 +197,7 @@ def print_pca_loadings(
 def perform_2d_pca(
     df: pd.DataFrame,
     features: list[str],
+    substance_mapping: dict,
 ) ->  Figure:
 
     df_pca, X_scaled = prepare_pca_data(
@@ -179,6 +212,10 @@ def perform_2d_pca(
 
     print_pca_loadings(pca=pca, features=features)
     
-    plot = plot_pca(df=df_scores, pca=pca, features=features)
+    plot = plot_pca(
+        df=df_scores, 
+        pca=pca, features=features,
+        substance_mapping=substance_mapping,
+    )
     
     return plot
